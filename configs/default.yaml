@@ -1,0 +1,25 @@
+seed: 42
+
+data:
+  root: data
+  subsample_size: 5000  # stratified test subsample shared by all methods, layers and models
+  num_workers: 0
+
+model:
+  conv_channels: [32, 64]
+  kernel_size: 3
+  padding: 1
+  pool_size: 2
+  latent_dim: 128
+
+train:
+  optimizer: adam
+  epochs: 3
+  lr: 1.0e-3            # keep the ".0": PyYAML reads "1e-3" as a string
+  batch_size: 128
+  eval_batch_size: 1000
+
+paths:
+  checkpoints: outputs/checkpoints
+  metrics: outputs/metrics
+  subsample_idx: outputs/subsample_idx.npy

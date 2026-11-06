@@ -1,0 +1,7 @@
+data/
+outputs/activations/
+outputs/embeddings/
+
+.venv/
+__pycache__/
+*.pyc

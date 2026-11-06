@@ -1,0 +1,43 @@
+{
+  "untrained": {
+    "train_acc": 0.12018333333333334,
+    "test_acc": 0.1215
+  },
+  "trained": {
+    "train_acc": 0.9930166666666667,
+    "test_acc": 0.9892
+  },
+  "seed": 42,
+  "device": "cpu",
+  "model_config": {
+    "conv_channels": [
+      32,
+      64
+    ],
+    "kernel_size": 3,
+    "padding": 1,
+    "pool_size": 2,
+    "latent_dim": 128
+  },
+  "train_config": {
+    "optimizer": "adam",
+    "epochs": 3,
+    "lr": 0.001,
+    "batch_size": 128,
+    "eval_batch_size": 1000
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.17116613571246464
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.046648334325353306
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.03330338162680467
+    }
+  ]
+}
