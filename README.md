@@ -17,6 +17,7 @@ pip install -r requirements.txt
 python scripts/run_all.py             # full pipeline
 python -m src.data                    # data stage only (MNIST download + test subsample)
 python -m src.train                   # training stage only
+python -m src.extract                 # activation extraction only (needs checkpoints)
 ```
 
 All accept `--config path/to/config.yaml` (default: `configs/default.yaml`) and `--force`.
@@ -43,7 +44,8 @@ conv(1→32, 3x3) + ReLU + maxpool  →  conv(32→64, 3x3) + ReLU + maxpool
 | `outputs/checkpoints/untrained.pt` | weights at random init (saved before any optimizer step) |
 | `outputs/checkpoints/trained.pt` | weights after 3 epochs of Adam (lr 1e-3, batch 128) |
 | `outputs/metrics/training.json` | train/test accuracy of both checkpoints, per-epoch loss |
-| `outputs/activations/`, `outputs/embeddings/` | large intermediates (gitignored) |
+| `outputs/activations/{name}.npz` | `X` (5000, d) float32, `y` labels, `idx` test indices for `input`, `hidden_untrained`, `latent_untrained`, `hidden_trained`, `latent_trained` (gitignored) |
+| `outputs/embeddings/` | 2-D embeddings (gitignored) |
 | `report/` | write-up and figures |
 
 ## Layout
@@ -54,7 +56,7 @@ configs/    run configuration
 scripts/    pipeline entry point
 ```
 
-`extract`, `reduce`, `metrics` and `plots` are placeholders and not implemented yet.
+`reduce`, `metrics` and `plots` are placeholders and not implemented yet.
 
 ## License
 
