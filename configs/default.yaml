@@ -45,9 +45,20 @@ metrics:
   highdim_standardize: true  # StandardScaler fit inside each CV training fold
   trustworthiness_k: 10      # reference: the preprocessed X each reducer received
 
+plots:
+  width_cm: 16               # text column width
+  dpi: 300                   # PNG and rasterized PDF marks
+  font_size: 8
+  cmap: tab10                # one fixed color per digit in every figure
+  point_size: 2
+  alpha: 0.5
+  som_size_key: [10, 25, 50] # reference hit counts in the SOM marker size key
+  mosaic_gap_px: 2           # gap between prototypes in the codebook mosaic
+
 paths:
   checkpoints: outputs/checkpoints
   metrics: outputs/metrics
   subsample_idx: outputs/subsample_idx.npy
   activations: outputs/activations
   embeddings: outputs/embeddings
+  figures: report/figures

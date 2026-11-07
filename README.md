@@ -20,6 +20,7 @@ python -m src.train                   # training stage only
 python -m src.extract                 # activation extraction only (needs checkpoints)
 python -m src.reduce                  # PCA / LLE / UMAP / SOM embeddings only (needs activations)
 python -m src.metrics                 # kNN accuracy, trustworthiness, SOM metrics (needs embeddings)
+python -m src.plots                   # figures in report/figures/ (needs embeddings)
 ```
 
 All accept `--config path/to/config.yaml` (default: `configs/default.yaml`) and `--force`.
@@ -50,7 +51,9 @@ conv(1→32, 3x3) + ReLU + maxpool  →  conv(32→64, 3x3) + ReLU + maxpool
 | `outputs/embeddings/{method}_{name}.npz` | 2-D embedding `Y`, `y`, `idx`, `runtime_s`, `warnings` for each of `pca`, `lle`, `umap`, `som` x 5 representations; PCA adds `explained_variance_ratio`; SOM stores BMU coordinates as `Y` plus `codebook`, `distance_map`, `quantization_error`, `topographic_error` (gitignored) |
 | `outputs/metrics/reduce_runtimes.json` | runtime per method/representation, captured warnings, errors |
 | `outputs/metrics/dr_metrics.csv` | one row per representation x method (`highdim`, `pca`, `lle`, `umap`, `som`): kNN accuracy (k=10, 5-fold stratified CV, mean/std), trustworthiness (k=10), SOM node purity, QE, TE |
-| `report/` | write-up and figures |
+| `report/figures/fig1_trained.{pdf,png}` | trained model: input/hidden/latent x PCA/LLE/UMAP/SOM |
+| `report/figures/fig2_untrained.{pdf,png}` | untrained model: hidden/latent x PCA/LLE/UMAP/SOM (input is identical to Fig 1) |
+| `report/figures/fig3_som_codebook.{pdf,png}` | input-layer SOM codebook, 20x20 prototypes |
 
 ## Layout
 
@@ -60,7 +63,12 @@ configs/    run configuration
 scripts/    pipeline entry point
 ```
 
-`plots` is a placeholder and not implemented yet.
+## SOM codebook of the input layer
+
+20x20 SOM trained on the standardized input pixels; each tile is a node's prototype mapped
+back to pixel intensities. Neighboring nodes hold similar digits.
+
+![SOM codebook of the input layer](report/figures/fig3_som_codebook.png)
 
 ## License
 

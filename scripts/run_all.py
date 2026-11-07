@@ -1,4 +1,4 @@
-"""Run the pipeline stages in order. Implemented so far: data, train, extract, reduce, metrics.
+"""Run the pipeline stages in order: data, train, extract, reduce, metrics, plots.
 
 Usage (from anywhere):  python scripts/run_all.py [--config configs/default.yaml] [--force]
 """
@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src import DEFAULT_CONFIG, load_config  # noqa: E402
-from src import data, extract, metrics, reduce, train  # noqa: E402
+from src import data, extract, metrics, plots, reduce, train  # noqa: E402
 
 
 def main() -> None:
@@ -26,7 +26,7 @@ def main() -> None:
     extract.main(cfg, args.force)
     reduce.main(cfg, args.force)
     metrics.main(cfg, args.force)
-    # TODO: plots
+    plots.main(cfg, args.force)
 
 
 if __name__ == "__main__":
