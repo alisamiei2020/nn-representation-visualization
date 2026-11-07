@@ -1,0 +1,52 @@
+{
+  "runtime_s": {
+    "pca": {
+      "input": 0.21692000003531575,
+      "hidden_untrained": 1.1046179998666048,
+      "latent_untrained": 0.11475539999082685,
+      "hidden_trained": 0.726425200002268,
+      "latent_trained": 0.01947860000655055
+    },
+    "lle": {
+      "input": 8.586945400107652,
+      "hidden_untrained": 6.791611300082877,
+      "latent_untrained": 13.113725200062618,
+      "hidden_trained": 5.919435600051656,
+      "latent_trained": 2.016103400150314
+    },
+    "umap": {
+      "input": 85.98366540018469,
+      "hidden_untrained": 13.765638400102034,
+      "latent_untrained": 11.363261499907821,
+      "hidden_trained": 14.8322618000675,
+      "latent_trained": 11.092075299937278
+    },
+    "som": {
+      "input": 83.65611560014077,
+      "hidden_untrained": 343.77433799998835,
+      "latent_untrained": 5.186378699960187,
+      "hidden_trained": 339.2835456999019,
+      "latent_trained": 5.519678300013766
+    }
+  },
+  "warnings": {
+    "umap": {
+      "input": [
+        "UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism."
+      ],
+      "hidden_untrained": [
+        "UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism."
+      ],
+      "latent_untrained": [
+        "UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism."
+      ],
+      "hidden_trained": [
+        "UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism."
+      ],
+      "latent_trained": [
+        "UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism."
+      ]
+    }
+  },
+  "errors": {}
+}

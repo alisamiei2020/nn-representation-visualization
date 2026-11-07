@@ -19,8 +19,29 @@ train:
   batch_size: 128
   eval_batch_size: 1000
 
+reduce:                 # all methods use random_state / random_seed = seed
+  standardize: true     # StandardScaler per representation before every method
+  pca:
+    n_components: 2
+  lle:
+    pca_components: 50  # PCA before LLE
+    n_neighbors: 12
+    n_components: 2
+    method: standard
+  umap:
+    n_neighbors: 15
+    min_dist: 0.1
+    n_components: 2
+  som:
+    x: 20
+    y: 20
+    sigma: 2.0
+    learning_rate: 0.5
+    num_iteration: 10000  # train_random, after pca_weights_init
+
 paths:
   checkpoints: outputs/checkpoints
   metrics: outputs/metrics
   subsample_idx: outputs/subsample_idx.npy
   activations: outputs/activations
+  embeddings: outputs/embeddings
