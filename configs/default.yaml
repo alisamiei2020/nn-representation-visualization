@@ -39,6 +39,12 @@ reduce:                 # all methods use random_state / random_seed = seed
     learning_rate: 0.5
     num_iteration: 10000  # train_random, after pca_weights_init
 
+metrics:
+  knn_k: 10
+  cv_folds: 5                # StratifiedKFold, shuffled with seed
+  highdim_standardize: true  # StandardScaler fit inside each CV training fold
+  trustworthiness_k: 10      # reference: the preprocessed X each reducer received
+
 paths:
   checkpoints: outputs/checkpoints
   metrics: outputs/metrics
